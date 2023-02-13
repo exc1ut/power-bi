@@ -10,6 +10,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 5555
+EXPOSE 5300
 
 CMD ["pm2-runtime", "./src/server.js"]
