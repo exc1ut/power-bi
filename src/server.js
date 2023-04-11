@@ -33,8 +33,9 @@ app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname + "/../views/index.html"));
 });
 
-app.get("/getEmbedToken/:reportId", async function (req, res) {
+app.get("/getEmbedToken/:workspaceId/:reportId", async function (req, res) {
   const reportId = req.params.reportId;
+  const workspaceId = req.params.workspaceId;
 
   // Validate whether all the required configurations are provided in config.json
   configCheckResult = utils.validateConfig();
@@ -44,7 +45,7 @@ app.get("/getEmbedToken/:reportId", async function (req, res) {
     });
   }
   // Get the details like Embed URL, Access token and Expiry
-  let result = await embedToken.getEmbedInfo(reportId);
+  let result = await embedToken.getEmbedInfo(reportId, workspaceId);
 
   // result.status specified the statusCode that will be sent along with the result object
   res.status(result.status).send(result);

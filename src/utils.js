@@ -34,9 +34,9 @@ function validateConfig() {
     return "ClientId must be a Guid object. Please register your application as Native app in https://dev.powerbi.com/apps and fill Client Id in config.json.";
   }
 
-  if (!config.workspaceId) {
-    return "WorkspaceId is empty. Please select a group you own and fill its Id in config.json.";
-  }
+  // if (!config.workspaceId) {
+  //   return "WorkspaceId is empty. Please select a group you own and fill its Id in config.json.";
+  // }
 
   if (!guid.isGuid(config.workspaceId)) {
     return "WorkspaceId must be a Guid object. Please select a workspace you own and fill its Id in config.json.";
